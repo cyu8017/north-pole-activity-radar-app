@@ -1,0 +1,155 @@
+@keyframes treeSway {
+  0%, 100% {
+    transform: rotate(-2deg) translateY(0px);
+  }
+  25% {
+    transform: rotate(1deg) translateY(-2px);
+  }
+  50% {
+    transform: rotate(2deg) translateY(0px);
+  }
+  75% {
+    transform: rotate(-1deg) translateY(-2px);
+  }
+}
+
+@keyframes presentBounce {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  25% {
+    transform: translateY(-3px) scale(1.02);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.05);
+  }
+  75% {
+    transform: translateY(-3px) scale(1.02);
+  }
+}
+
+@keyframes santaWave {
+  0%, 100% {
+    transform: translateX(0px) translateY(0px) rotate(-3deg);
+  }
+  25% {
+    transform: translateX(2px) translateY(-1px) rotate(-1deg);
+  }
+  50% {
+    transform: translateX(3px) translateY(0px) rotate(3deg);
+  }
+  75% {
+    transform: translateX(2px) translateY(-1px) rotate(1deg);
+  }
+}
+
+@keyframes reindeerNod {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-2px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-3px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-2px) rotate(1deg);
+  }
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    opacity: 0.7;
+    transform: scale(1.1) rotate(90deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(180deg);
+  }
+  75% {
+    opacity: 0.7;
+    transform: scale(1.1) rotate(270deg);
+  }
+}
+
+@keyframes houseFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes snowGround {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.christmas-background {
+  background: linear-gradient(to bottom, #0a1929 0%, #1a237e 50%, #0d47a1 100%);
+}
+
+/* Performance optimizations for smoother animations */
+.christmas-tree,
+.house,
+.present,
+.santa,
+.reindeer,
+.star {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  transform: translateZ(0);
+}
+
+.christmas-tree {
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.house {
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.present {
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.santa {
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.reindeer {
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .christmas-tree,
+  .house,
+  .present,
+  .santa,
+  .reindeer {
+    transform: scale(0.7);
+  }
+}
+
+@media (max-width: 480px) {
+  .christmas-tree,
+  .house,
+  .present,
+  .santa,
+  .reindeer {
+    transform: scale(0.5);
+  }
+}
+

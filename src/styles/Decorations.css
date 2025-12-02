@@ -1,0 +1,51 @@
+.candy-cane {
+  animation: sway 3s ease-in-out infinite;
+  transform-origin: bottom center;
+  display: inline-block;
+}
+
+.candy-cane[data-left="true"] {
+  animation: swayLeft 3s ease-in-out infinite;
+}
+
+.pole {
+  animation: float 4s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes sway {
+  0%, 100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes swayLeft {
+  0%, 100% {
+    transform: scaleX(-1) rotate(-5deg);
+  }
+  50% {
+    transform: scaleX(-1) rotate(5deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .candy-cane {
+    font-size: 2rem !important;
+  }
+  
+  .pole {
+    font-size: 2rem !important;
+  }
+}
