@@ -15,27 +15,28 @@ A beautiful, interactive dashboard to track Santa's journey and countdown to Chr
 
 ## 🚀 Deployment
 
-This app is configured for automatic deployment to GitHub Pages.
+This app is configured to deploy to GitHub Pages from a branch.
 
-### Automatic Deployment (Recommended)
+### Deploy to GitHub Pages
 
 1. **Enable GitHub Pages** in your repository:
    - Go to **Settings** → **Pages**
-   - Under **Source**, select **"GitHub Actions"**
-   - Save
+   - Under **Source**, select **"Deploy from a branch"**
+   - Select branch: **`gh-pages`**
+   - Select folder: **`/ (root)`**
+   - Click **Save**
 
-2. **Push to main branch**:
+2. **Deploy the site**:
    ```bash
-   git add .
-   git commit -m "Ready for deployment"
-   git push origin main
+   npm run deploy
    ```
 
-3. The GitHub Actions workflow will automatically:
+   This will:
    - Build the production version
+   - Create/update the `gh-pages` branch
    - Deploy to GitHub Pages
 
-Your site will be available at: `https://cyu8017.github.io/north-pole-activity-radar-app/`
+3. Your site will be available at: `https://cyu8017.github.io/north-pole-activity-radar-app/`
 
 ### Manual Build
 
