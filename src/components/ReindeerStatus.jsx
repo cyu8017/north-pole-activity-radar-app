@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Paper, Typography, Grid, Box, LinearProgress } from '@mui/material'
-import PetsIcon from '@mui/icons-material/Pets'
 
 const REINDEER = [
   { name: 'Dasher', baseEnergy: 65, chargeRate: 1.2 },
@@ -81,12 +80,13 @@ function ReindeerStatus() {
       elevation={12}
       className="enhanced-card"
       sx={{
-        p: { xs: 2.5, sm: 3, md: 4, lg: 5 },
-        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%)',
-        backdropFilter: 'blur(20px)',
-        borderRadius: { xs: 3, sm: 4 },
-        border: '2px solid rgba(255, 255, 255, 0.3)',
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+        p: { xs: 3, sm: 4, md: 5 },
+        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%)',
+        backdropFilter: 'blur(24px) saturate(180%)',
+        WebkitBackdropFilter: 'blur(24px) saturate(180%)',
+        borderRadius: { xs: 16, sm: 20, md: 24 },
+        border: '1px solid rgba(255, 255, 255, 0.18)',
+        boxShadow: '0 16px 48px rgba(0, 0, 0, 0.25), 0 0 32px rgba(245, 158, 11, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.1)',
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
@@ -98,30 +98,23 @@ function ReindeerStatus() {
         sx={{ 
           display: 'flex', 
           alignItems: 'center', 
-          justifyContent: 'center', 
+          justifyContent: 'flex-start', 
           mb: { xs: 1.5, sm: 2 },
           pb: 1.5,
           borderBottom: '2px solid rgba(255, 255, 255, 0.2)',
         }}
       >
-        <PetsIcon 
-          sx={{ 
-            color: '#FFD700', 
-            mr: 1.5, 
-            fontSize: { xs: 24, sm: 28 },
-            filter: 'drop-shadow(0 0 6px rgba(255, 215, 0, 0.5))',
-          }} 
-        />
         <Typography 
           variant="h6" 
           sx={{ 
-            background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
+            fontFamily: "'Space Grotesk', sans-serif",
+            background: 'linear-gradient(135deg, #F59E0B 0%, #EC4899 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
-            fontWeight: 600,
-            fontSize: { xs: '1.125rem', sm: '1.375rem' },
-            textShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+            fontWeight: 700,
+            fontSize: { xs: '1.25rem', sm: '1.5rem' },
+            letterSpacing: '-0.01em',
           }}
         >
           Reindeer Status
@@ -143,19 +136,22 @@ function ReindeerStatus() {
           <Box key={r.name}>
             <Box
               sx={{
-                p: { xs: 2, sm: 2.5, md: 3 },
-                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%)',
-                borderRadius: 2,
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+                p: { xs: 2.5, sm: 3, md: 3.5 },
+                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
+                backdropFilter: 'blur(12px)',
+                borderRadius: 3,
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
                 textAlign: 'left',
                 display: 'flex',
                 flexDirection: 'column',
                 height: '100%',
-                transition: 'all 0.3s ease',
+                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                 '&:hover': {
-                  transform: 'translateY(-2px)',
-                  boxShadow: '0 6px 16px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+                  transform: 'translateY(-4px)',
+                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%)',
+                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3), 0 0 16px rgba(245, 158, 11, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                  border: '1px solid rgba(255, 255, 255, 0.25)',
                 },
               }}
             >

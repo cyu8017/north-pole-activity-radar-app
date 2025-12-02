@@ -101,6 +101,7 @@ function App() {
         py: { xs: 2, sm: 3, md: 4 },
         px: { xs: 1, sm: 2 },
         overflow: 'hidden',
+        background: 'radial-gradient(ellipse at top, rgba(99, 102, 241, 0.15) 0%, transparent 50%), radial-gradient(ellipse at bottom, rgba(236, 72, 153, 0.15) 0%, transparent 50%), linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%)',
       }}
     >
       <ChristmasBackground />
@@ -148,33 +149,31 @@ function App() {
               {/* Center Column - North Pole Radar */}
               <Grid item xs={12} sm={12} md={4} lg={4}>
             <Paper
-              elevation={16}
-              className="enhanced-card"
+              elevation={0}
+              className="enhanced-card gradient-border"
               sx={{
-                p: { xs: 2.5, sm: 3, md: 4, lg: 5 },
-                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 100%)',
-                backdropFilter: 'blur(20px)',
-                borderRadius: { xs: 3, sm: 4 },
-                border: '2px solid rgba(255, 215, 0, 0.4)',
-                boxShadow: '0 12px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
+                p: { xs: 3, sm: 4, md: 5, lg: 6 },
+                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%)',
+                backdropFilter: 'blur(24px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(24px) saturate(180%)',
+                borderRadius: { xs: 16, sm: 20, md: 24 },
+                border: '1px solid rgba(255, 255, 255, 0.18)',
+                boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3), 0 0 40px rgba(245, 158, 11, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.1)',
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 position: 'relative',
                 overflow: 'hidden',
-                '&::before': {
+                '&::after': {
                   content: '""',
                   position: 'absolute',
-                  top: 0,
-                  left: '-100%',
-                  width: '100%',
-                  height: '100%',
-                  background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
-                  animation: 'shimmer 3s infinite',
-                  '@keyframes shimmer': {
-                    '0%': { left: '-100%' },
-                    '100%': { left: '100%' },
-                  },
+                  top: '-50%',
+                  left: '-50%',
+                  width: '200%',
+                  height: '200%',
+                  background: 'radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%)',
+                  animation: 'pulse 4s ease-in-out infinite',
+                  pointerEvents: 'none',
                 },
               }}
             >
@@ -186,53 +185,34 @@ function App() {
                   justifyContent: 'center',
                 }}
               >
-                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: { xs: 1, sm: 1.5 }, gap: 1.5 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: { xs: 2, sm: 2.5 }, gap: 2 }}>
                   <RadarIcon 
                     sx={{ 
-                      color: '#FFD700',
-                      fontSize: { xs: 32, sm: 40, md: 48 },
+                      color: '#10B981',
+                      fontSize: { xs: 36, sm: 44, md: 52 },
                       animation: 'spin 4s linear infinite',
                       '@keyframes spin': {
                         '0%': { transform: 'rotate(0deg)' },
                         '100%': { transform: 'rotate(360deg)' },
                       },
-                      filter: 'drop-shadow(0 0 8px rgba(255, 215, 0, 0.6))',
+                      filter: 'drop-shadow(0 0 12px rgba(16, 185, 129, 0.6))',
                     }} 
                   />
                   <Typography
                     variant="h2"
                     component="h1"
+                    className="gradient-text"
                     sx={{
+                      fontFamily: "'Space Grotesk', sans-serif",
                       textAlign: 'center',
-                      background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF6347 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
                       fontWeight: 700,
-                      fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem', lg: '3rem' },
-                      textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)',
+                      fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.75rem', lg: '3.25rem' },
+                      letterSpacing: '-0.02em',
                     }}
                   >
                     North Pole Radar
                   </Typography>
                 </Box>
-                <Typography
-                  variant="h6"
-                  sx={{
-                    textAlign: 'center',
-                    color: 'rgba(255, 255, 255, 0.95)',
-                    mb: { xs: 2, sm: 3, md: 4 },
-                    fontSize: { xs: '0.875rem', sm: '1rem', md: '1.125rem' },
-                    fontWeight: 500,
-                    textTransform: 'uppercase',
-                    letterSpacing: { xs: 1, sm: 1.5 },
-                  }}
-                >
-                  {isChristmasDay 
-                    ? "🎅 It's Christmas Day! 🎄" 
-                    : "⏰ Time until Christmas"}
-                </Typography>
-
                 {isChristmasDay ? (
                   <Box sx={{ textAlign: 'center', py: { xs: 2, sm: 3, md: 4 } }}>
                     <Typography
@@ -256,22 +236,31 @@ function App() {
                     }}
                   >
                     <Typography
-                      variant="h1"
-                      component="div"
-                      className="countdown-glow"
-                      sx={{
-                        color: '#FFD700',
-                        fontWeight: 700,
-                        fontSize: { xs: '2rem', sm: '3rem', md: '4rem', lg: '5rem' },
-                        fontFamily: 'monospace',
-                        letterSpacing: { xs: 1, sm: 2 },
-                        lineHeight: { xs: 1.2, sm: 1 },
-                        position: 'relative',
-                        zIndex: 1,
-                      }}
-                    >
-                      {formatCountdown()}
-                    </Typography>
+                    variant="h1"
+                    component="div"
+                    className="countdown-glow"
+                    sx={{
+                      fontFamily: "'Space Grotesk', monospace",
+                      fontWeight: 700,
+                      fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4.5rem', lg: '6rem' },
+                      letterSpacing: { xs: 2, sm: 3 },
+                      lineHeight: { xs: 1.1, sm: 1 },
+                      position: 'relative',
+                      zIndex: 1,
+                      background: 'linear-gradient(135deg, #F59E0B 0%, #FB923C 25%, #EC4899 50%, #A855F7 75%, #6366F1 100%)',
+                      backgroundSize: '200% auto',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      animation: 'gradient-shift 4s ease infinite',
+                      '@keyframes gradient-shift': {
+                        '0%, 100%': { backgroundPosition: '0% 50%' },
+                        '50%': { backgroundPosition: '100% 50%' },
+                      },
+                    }}
+                  >
+                    {formatCountdown()}
+                  </Typography>
                     <Box
                       sx={{
                         position: 'absolute',
@@ -290,6 +279,21 @@ function App() {
                         },
                       }}
                     />
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        position: 'relative',
+                        zIndex: 2,
+                        textAlign: 'center',
+                        color: 'rgba(255, 255, 255, 0.7)',
+                        mt: 1,
+                        fontSize: { xs: '0.7rem', sm: '0.75rem', md: '0.875rem' },
+                        fontWeight: 400,
+                        letterSpacing: '0.05em',
+                      }}
+                    >
+                      {isChristmasDay ? "It's Christmas Day!" : "Time until Christmas"}
+                    </Typography>
                   </Box>
                 )}
               </Box>
